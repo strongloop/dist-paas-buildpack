@@ -416,7 +416,7 @@ function install_package_dependencies() {
 #  Get Node.js application script.
 #
 function get_nodejs_app_script() {
-  local PKGJS="console.log(require('./package.json').main || 'server.js');"
+  local PKGJS="console.log(require('./package.json').main);"
 
   #  Check in order package.json, app.js, server.js
   [ -f "./package.json" ] && zscript=$(node -e "$PKGJS")
