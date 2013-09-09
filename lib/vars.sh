@@ -17,7 +17,7 @@ STRONGLOOP_VENDOR_INSTALL_DIR="vendor/strongloop"
 
 #  Defaults - change this as per the lifecycle phases this buildpack or its
 #  clone goes through.
-STRONGLOOP_DEFAULT_NODE_VERSION="1.1.3-1"
+STRONGLOOP_DEFAULT_NODE_VERSION="1.2.0-1"
 STRONGLOOP_DEFAULT_NODE_ENV="production"
 
 
