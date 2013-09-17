@@ -23,6 +23,7 @@ http://docs.cloudfoundry.com/docs/using/managing-apps/cf/
      
 Login into the Cloud Foundry PaaS:
 
+    $ cf target api.run.pivotal.io
     $ cf login
 
 <h4> How to use the Strongloop Suite </h4>
@@ -33,15 +34,21 @@ Explore the entire [documentation](http://docs.strongloop.com/).
 
 <h4> Deploying on Cloud Foundry </h4>
 
-Once you have created a sample app, please use *server.js* as the name of the app's main script.
-Some apps might use app.js or main.js, and you can simply rename or clone it before push:
+Once you have created a sample app, please also add a **Procfile** in the root folder of your app (same place as **package.json**).
+The only line in this **Procfile** should be the start command of your web app.
 
-    $ cp app.js server.js
+For example:
 
-When you are satisfied that all's ok, push your app to Cloud Foundry.
-Just pick a name for your app and run the command:
+    $ cat Procfile
+    web: slc run .
 
-    $ cf push [your app name] --buildpack=git://github.com/cloudfoundry-community/strongloop-suite-buildpack.git
+When you are satisfied that all's ok, get ready to push your app to Cloud Foundry.
+
+There is a trick to speed up your push process and avoid possible conflict - remove local **node_modules** before push:
+
+    $ rm -rf node_modules
+    
+    $ cf push --buildpack=git://github.com/cloudfoundry-community/strongloop-suite-buildpack.git
 
 Note:  The first time you run cf push, you will need to specify all the
        parameters - this will create a new application at Cloud Foundry.
