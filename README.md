@@ -48,7 +48,7 @@ There is a trick to speed up your push process and avoid possible conflict - rem
 
     $ rm -rf node_modules
     
-    $ cf push --buildpack=git://github.com/cloudfoundry-community/strongloop-suite-buildpack.git
+    $ cf push --buildpack=https://github.com/strongloop/dist-paas-buildpack
 
 Note:  The first time you run cf push, you will need to specify all the
        parameters - this will create a new application at Cloud Foundry.
